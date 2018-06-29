@@ -9,11 +9,11 @@ import dagger.Module;
 import dagger.Provides;
 
 @Module
-public class AppModule {
+public class MiscModule {
 
     Application mApplication;
 
-    public AppModule(Application application) {
+    public MiscModule(Application application) {
         mApplication = application;
     }
 

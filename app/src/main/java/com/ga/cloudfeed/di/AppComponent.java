@@ -17,7 +17,7 @@ import javax.inject.Singleton;
 import dagger.Component;
 
 @Singleton
-@Component(modules = {NetModule.class, ModelModule.class, AppModule.class, RoomModule.class})
+@Component(modules = {NetModule.class, ModelModule.class, MiscModule.class, RoomModule.class})
 public interface AppComponent {
     void inject(AddFeedDialogFragment addFeedDialogFragment);
     void inject(ListFragment listFragment);

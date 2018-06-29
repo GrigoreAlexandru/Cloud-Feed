@@ -18,20 +18,7 @@ import okhttp3.OkHttpClient;
 @Module
 public class NetModule {
 
-    String mBaseUrl;
 
-    // Constructor needs one parameter to instantiate.
-    public NetModule(String baseUrl) {
-        this.mBaseUrl = baseUrl;
-    }
-
-    // Dagger will only look for methods annotated with @Provides
-    @Provides
-    @Singleton
-    // Application reference must come from AppModule.class
-    SharedPreferences providesSharedPreferences(Application application) {
-        return PreferenceManager.getDefaultSharedPreferences(application);
-    }
 
     @Provides
     @Singleton
@@ -41,13 +28,6 @@ public class NetModule {
         return cache;
     }
 
-    @Provides
-    @Singleton
-    Gson provideGson() {
-        GsonBuilder gsonBuilder = new GsonBuilder();
-        gsonBuilder.setFieldNamingPolicy(FieldNamingPolicy.LOWER_CASE_WITH_UNDERSCORES);
-        return gsonBuilder.create();
-    }
 
     @Provides
     @Singleton

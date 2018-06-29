@@ -8,7 +8,7 @@ import android.support.multidex.MultiDexApplication;
 import android.widget.Toast;
 
 import com.ga.cloudfeed.di.AppComponent;
-import com.ga.cloudfeed.di.AppModule;
+import com.ga.cloudfeed.di.MiscModule;
 import com.ga.cloudfeed.di.DaggerAppComponent;
 import com.ga.cloudfeed.di.NetModule;
 import com.ga.cloudfeed.di.RoomModule;
@@ -32,9 +32,9 @@ public final class CloudFeedApplication extends MultiDexApplication {
 
         AppComponent = DaggerAppComponent
                 .builder()
-                .appModule(new AppModule(this))
+                .miscModule(new MiscModule(this))
                 .roomModule(new RoomModule(this))
-                .netModule(new NetModule(BASE_API_URL))
+                .netModule(new NetModule())
                 .build();
         CloudFeedApplication.context = getApplicationContext();
     }
