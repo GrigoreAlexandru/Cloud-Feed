@@ -66,6 +66,7 @@ public class WebViewActivity extends AppCompatActivity {
     public boolean onCreateOptionsMenu(Menu menu) {
         MenuInflater inflater = getMenuInflater();
         inflater.inflate(R.menu.activity_webview_menu, menu);
+        // TODO: Change icon.
         updateItem(menu.findItem(R.id.action_read_later));
         return true;
     }

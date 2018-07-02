@@ -7,13 +7,13 @@ import android.os.Looper;
 import android.support.multidex.MultiDexApplication;
 import android.widget.Toast;
 
+import com.evernote.android.job.JobManager;
 import com.ga.cloudfeed.di.AppComponent;
 import com.ga.cloudfeed.di.MiscModule;
 import com.ga.cloudfeed.di.DaggerAppComponent;
 import com.ga.cloudfeed.di.NetModule;
 import com.ga.cloudfeed.di.RoomModule;
-
-import static com.ga.cloudfeed.Constants.BASE_API_URL;
+import com.ga.cloudfeed.networking.MyJobCreator;
 
 public final class CloudFeedApplication extends MultiDexApplication {
     private com.ga.cloudfeed.di.AppComponent AppComponent;
@@ -28,7 +28,7 @@ public final class CloudFeedApplication extends MultiDexApplication {
     @Override
     public void onCreate() {
         super.onCreate();
-
+        JobManager.create(this).addJobCreator(new MyJobCreator());
 
         AppComponent = DaggerAppComponent
                 .builder()

@@ -6,7 +6,7 @@ import android.support.annotation.Nullable;
 import com.evernote.android.job.Job;
 import com.evernote.android.job.JobCreator;
 
-public class DemoJobCreator implements JobCreator {
+public class MyJobCreator implements com.evernote.android.job.JobCreator {
 
     @Override
     @Nullable

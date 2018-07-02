@@ -28,10 +28,9 @@ import android.widget.TextView;
 import com.evernote.android.job.JobManager;
 import com.firebase.ui.auth.AuthUI;
 import com.ga.cloudfeed.CloudFeedApplication;
-import com.ga.cloudfeed.Constants;
 import com.ga.cloudfeed.GlideApp;
 import com.ga.cloudfeed.R;
-import com.ga.cloudfeed.networking.DemoJobCreator;
+import com.ga.cloudfeed.networking.MyJobCreator;
 import com.ga.cloudfeed.networking.Firestore;
 import com.ga.cloudfeed.networking.PollJob;
 import com.ga.cloudfeed.networking.User;
@@ -77,6 +76,7 @@ public class MainActivity extends BaseActivity
     private FirebaseAuth auth;
     private Toolbar toolbar;
     private View headerView;
+    public static String AppName;
 
 
     public static void showProgressBar(int i) {
@@ -95,8 +95,10 @@ public class MainActivity extends BaseActivity
 
         setContentView(R.layout.activity_main);
 
+        AppName = getString(R.string.app_name);
+
         toolbar = findViewById(R.id.toolbar);
-        toolbar.setTitle("Cloud Feed");
+        toolbar.setTitle(AppName);
         setSupportActionBar(toolbar);
 
 
@@ -121,12 +123,12 @@ public class MainActivity extends BaseActivity
     }
 
     private void initPollJob() {
-        SharedPreferences pref = getSharedPreferences("cloudFeed", MODE_PRIVATE);
-        boolean pollJob = pref.getBoolean("pollJob", false);
+        SharedPreferences pref = getSharedPreferences(AppName, MODE_PRIVATE);
+        boolean pollJob = pref.getBoolean(PollJob.TAG, false);
         if (!pollJob) {
-            JobManager.create(this).addJobCreator(new DemoJobCreator());
+            JobManager.create(this).addJobCreator(new MyJobCreator());
             PollJob.schedulePeriodicJob();
-            pref.edit().putBoolean("pollJob", true).apply();
+            pref.edit().putBoolean(PollJob.TAG, true).apply();
         }
 
     }
@@ -254,6 +256,7 @@ public class MainActivity extends BaseActivity
         // Handle drawer item clicks
         int id = item.getItemId();
         switch (id) {
+            // TODO: Add settings to drawer. Possible additions: notification sound, poll frequency.
 //            case R.id.nav_settings:
 //
 //                break;
@@ -317,7 +320,7 @@ public class MainActivity extends BaseActivity
 
             int importance = NotificationManager.IMPORTANCE_DEFAULT;
             NotificationChannel channel = new NotificationChannel(CLOUD_FEED_CHANNEL,
-                    "Cloud Feed", importance);
+                    AppName, importance);
 
             NotificationManager notificationManager = getSystemService(NotificationManager.class);
             notificationManager.createNotificationChannel(channel);
