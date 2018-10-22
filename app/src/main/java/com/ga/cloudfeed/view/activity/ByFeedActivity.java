@@ -3,7 +3,6 @@ package com.ga.cloudfeed.view.activity;
 import android.os.Bundle;
 import android.support.v4.app.Fragment;
 
-import com.ga.cloudfeed.Constants;
 import com.ga.cloudfeed.R;
 
 import static com.ga.cloudfeed.view.fragment.ListFragment.BY_FEED_FRAG;

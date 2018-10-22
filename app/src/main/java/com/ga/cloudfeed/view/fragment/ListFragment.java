@@ -15,7 +15,6 @@ import android.view.View;
 import android.view.ViewGroup;
 
 import com.ga.cloudfeed.CloudFeedApplication;
-import com.ga.cloudfeed.Constants;
 import com.ga.cloudfeed.R;
 import com.ga.cloudfeed.view.activity.MainActivity;
 import com.ga.cloudfeed.view.adapter.GenericAdapter;
