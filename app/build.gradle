@@ -2,9 +2,9 @@ apply plugin: 'com.android.application'
 apply plugin: 'io.fabric'
 
 // Load keystore
-def keystorePropertiesFile = rootProject.file("keystore.properties")
-def keystoreProperties = new Properties()
-keystoreProperties.load(new FileInputStream(keystorePropertiesFile))
+//def keystorePropertiesFile = rootProject.file("keystore.properties")
+//def keystoreProperties = new Properties()
+//keystoreProperties.load(new FileInputStream(keystorePropertiesFile))
 
 android {
     compileOptions.incremental = false
@@ -15,12 +15,12 @@ android {
             keyAlias 'androiddebugkey'
             keyPassword 'android'
         }
-        release {
-            storeFile file(keystoreProperties['releaseStoreFile'])
-            storePassword keystoreProperties['releaseStorePassword']
-            keyAlias keystoreProperties['releaseKeyAlias']
-            keyPassword keystoreProperties['releaseKeyPassword']
-        }
+        //release {
+         //   storeFile file(keystoreProperties['releaseStoreFile'])
+         //  storePassword keystoreProperties['releaseStorePassword']
+         //   keyAlias keystoreProperties['releaseKeyAlias']
+         //   keyPassword keystoreProperties['releaseKeyPassword']
+       // }
     }
     dataBinding {
         enabled = true
@@ -37,12 +37,12 @@ android {
         signingConfig signingConfigs.debug
     }
     buildTypes {
-        release {
-            zipAlignEnabled true
-            minifyEnabled true
-            shrinkResources true
-            proguardFiles getDefaultProguardFile('proguard-android.txt'), 'proguard-rules.pro'
-            signingConfig signingConfigs.release
+        //release {
+          //  zipAlignEnabled true
+           // minifyEnabled true
+            //shrinkResources true
+            //proguardFiles getDefaultProguardFile('proguard-android.txt'), 'proguard-rules.pro'
+            //signingConfig signingConfigs.release
         }
         debug {
             signingConfig signingConfigs.debug
