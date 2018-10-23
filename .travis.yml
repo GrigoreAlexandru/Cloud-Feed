@@ -1,4 +1,6 @@
 language: android
+sudo: required
+jdk: oraclejdk8
 android:
   components:
     - tools
@@ -9,10 +11,10 @@ android:
     - extra-android-m2repository
     - addon-google_apis-google-28
 
- licenses:
- - android-sdk-preview-license-.+
- - android-sdk-license-.+
- - google-gdk-license-.+
+licenses:
+    - 'android-sdk-preview-license-52d11cd2'
+    - 'android-sdk-license-.+'
+    - 'google-gdk-license-.+'
 
 before_install:
  - chmod +x gradlew
