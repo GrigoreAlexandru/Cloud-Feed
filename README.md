@@ -13,4 +13,4 @@ Using Firebase, [cloud-feed-backend](https://github.com/GrigoreAlexandru/Cloud-F
 - Add google-services.json to app directory from Firebase console
 - Connect app to Firebase via Firebase assistant in Android studio
 
-[APK HERE](hhttps://github.com/GrigoreAlexandru/Cloud-Feed/releases/download/v1.0/Cloud_Feed_release.apk)
+[APK HERE](https://github.com/GrigoreAlexandru/Cloud-Feed/releases/download/v1.0/Cloud_Feed_release.apk)
