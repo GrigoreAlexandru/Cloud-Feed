@@ -4,7 +4,7 @@
 
 Rss client with real time push notifications (or poll for unsupported feeds), offline db and user sync.
 
-Using Firebase, [cloud-feed-backend](https://github.com/GrigoreAlexandru/Cloud-Feed-Backend) and [rss parser](https://github.com/GrigoreAlexandru/Modern-feed-parser).
+Using Firebase, [cloud-feed-backend](https://github.com/GrigoreAlexandru/Cloud-Feed-Backend) and [rss parser](https://github.com/GrigoreAlexandru/Modern-feed-parser). Uses Android Architecture components: lifecycle-aware components,Room,Live Data, MVVM and Dagger 2.
 
 # Usage
 Add standard conforming xml urls (RSS2/RSS1/ATOM)
